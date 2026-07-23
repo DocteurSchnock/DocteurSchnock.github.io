@@ -1,0 +1,101 @@
+/* ===== Clarté — clarte-apps.fr ===== */
+/* Police auto-hébergée : placer les fichiers woff2 dans /fonts (voir README). */
+@font-face { font-family: 'Atkinson Hyperlegible'; font-weight: 400; font-style: normal; font-display: swap;
+  src: local('Atkinson Hyperlegible'), url('fonts/AtkinsonHyperlegible-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Atkinson Hyperlegible'; font-weight: 700; font-style: normal; font-display: swap;
+  src: local('Atkinson Hyperlegible Bold'), url('fonts/AtkinsonHyperlegible-Bold.woff2') format('woff2'); }
+
+:root {
+  --fond: #FAF9F7;
+  --encre: #1A1C1E;
+  --accent: #0F4C81;
+  --accent-fonce: #0A3A64;
+  --bandeau-fond: #E3EEF9;
+  --bandeau-texte: #0A3A64;
+  --surface: #FFFFFF;
+  --bordure: #C9C5BF;
+  --texte-secondaire: #44474C;
+  --sur-accent: #FFFFFF;
+  --vert: #1D5C40; --prune: #553C7B; --brun: #79402E;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fond: #0E1013;
+    --encre: #FFFFFF;
+    --accent: #8FC3F0;
+    --accent-fonce: #BFDCF7;
+    --bandeau-fond: #14283B;
+    --bandeau-texte: #BFDCF7;
+    --surface: #171A1E;
+    --bordure: #3A3F45;
+    --texte-secondaire: #B9BDC2;
+    --sur-accent: #0B1623;
+    --vert: #8FD0AE; --prune: #C4A9E8; --brun: #E0A88F;
+  }
+}
+
+* { box-sizing: border-box; }
+html { font-size: 100%; }
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--encre);
+  font-family: 'Atkinson Hyperlegible', 'Segoe UI', system-ui, sans-serif;
+  font-size: 20px;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+main { max-width: 42rem; margin: 0 auto; padding: 0 20px; }
+h1 { font-size: 40px; line-height: 1.15; margin: 0; }
+h2 { font-size: 28px; line-height: 1.25; margin: 2.5rem 0 0.75rem; }
+p, li { max-width: 68ch; }
+ul { padding-left: 1.4rem; }
+li { margin: 0.4rem 0; }
+a { color: var(--accent); font-weight: 700; text-underline-offset: 3px; }
+a:hover { color: var(--accent-fonce); }
+:focus-visible { outline: 4px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+/* En-tête commun */
+.entete { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 24px 20px; max-width: 42rem; margin: 0 auto; }
+.entete a { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--encre); }
+.pastille { width: 56px; height: 56px; border-radius: 14px; background: #0F4C81; display: grid; place-items: center; flex: none; }
+.pastille .cercle { width: 36px; height: 36px; border-radius: 50%; background: #fff; display: grid; place-items: center; }
+.marque { font-size: 28px; font-weight: 700; }
+.lang { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 6px 16px; border: 3px solid var(--accent); border-radius: 12px; font-size: 18px; text-decoration: none; }
+
+/* Boutons */
+.btn, .btn-second {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  min-height: 56px; padding: 12px 28px; border-radius: 16px;
+  font-size: 22px; font-weight: 700; text-decoration: none;
+}
+.btn { background: var(--accent); color: var(--sur-accent); }
+.btn:hover { background: var(--accent-fonce); color: var(--sur-accent); }
+.btn-second { background: var(--surface); color: var(--accent); border: 3px solid var(--accent); }
+.btn-second:hover { color: var(--accent-fonce); border-color: var(--accent-fonce); }
+.btn svg, .btn-second svg { flex: none; }
+
+/* Cartes */
+.carte { background: var(--surface); border: 2px solid var(--bordure); border-radius: 16px; padding: 28px 24px; }
+.encart { background: var(--bandeau-fond); color: var(--bandeau-texte); border-left: 6px solid var(--accent); padding: 18px 20px; border-radius: 0 12px 12px 0; }
+.encart a { color: inherit; }
+
+/* Listes d'engagements / étapes */
+.ligne-icone { display: flex; gap: 16px; align-items: flex-start; }
+.ligne-icone .rond { width: 56px; height: 56px; border-radius: 50%; background: var(--bandeau-fond); color: var(--accent); display: grid; place-items: center; flex: none; }
+
+/* Grille « Bientôt » */
+.grille-apps { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 1rem; }
+@media (min-width: 620px) { .grille-apps { grid-template-columns: repeat(3, 1fr); } }
+
+/* Étapes numérotées (page Aide) */
+.etape { display: flex; gap: 18px; align-items: flex-start; margin: 1.5rem 0; }
+.etape .num { width: 56px; height: 56px; border-radius: 50%; background: var(--accent); color: var(--sur-accent); font-size: 28px; font-weight: 700; display: grid; place-items: center; flex: none; }
+
+/* Pied de page */
+.pied { border-top: 2px solid var(--bordure); margin-top: 4rem; padding: 28px 20px 40px; }
+.pied nav { max-width: 42rem; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 12px 28px; font-size: 18px; }
+.pied p { max-width: 42rem; margin: 1rem auto 0; font-size: 18px; color: var(--texte-secondaire); }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.date-maj { color: var(--texte-secondaire); font-size: 18px; }
